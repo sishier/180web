@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Technicolor Boxes</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        body {background-color: black;}
+        #wall {
+            width: 900px;
+            height: 1800px;
+            background-color: #444;
+            margin: 0 auto;
+        }
+        .tide {
+            float: left;
+            width: 100px;
+            height: 100px;
+            box-shadow: none;
+            position: relative;  // http://stackoverflow.com/questions/23067651/how-to-layer-box-shadows-using-z-index
+            z-index: 1;
+        }
+        .focus {
+            box-shadow: 0 0 8px white;
+            z-index: 100000;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            const ROW = 9,
+                COLUMN = 18;
+            var $wall = $('#wall');
+            var getRandomColor = function () { return '#' + Math.random().toString().substr(2, 6); };  // substr(start, len) and slice(start, end)
+
+            for (var i = 0; i < ROW; i++) {
+                for (var ii = 0; ii < COLUMN; ii++) {
+                    var $tide = $(document.createElement('div')); // http://stackoverflow.com/questions/327047/what-is-the-most-efficient-way-to-create-html-elements-using-jquery
+                    $tide.addClass('tide');
+                    $tide.mouseenter(function () {
+                        var color = getRandomColor();
+                        $(this).css('background-color', color);
+                        $(this).addClass('focus');
+                    });
+                    $tide.mouseleave(function () {
+                        $(this).removeClass('focus');
+                    });
+                    $wall.append($tide);
+                }
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <section id="main">
+        <div id="wall">
+        </div>
+    </section>
+    <footer>
+        <ul>
+            <li id="link_home"><a href="index.html">Home</a></li>
+            <li id="link_blog"><a href="http://sishier.github.io/blog">Blog</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

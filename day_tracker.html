@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Day Tracker | Jennifer Dewalt</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <style>
+        #main {
+            position: relative;
+        }
+
+        .calendar {
+            width: 700px;
+            margin: 0 auto;
+            outline-width: 0;
+            font-size: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            vertical-align: top;
+        }
+
+        .day_column {
+            background-color: #F1C40F;
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            width: 100px;
+            height: 100px;
+            vertical-align: top;
+        }
+
+            .today {
+                background-color: #16A085;
+                height: 300px;
+                font-size: 40px;
+            }
+
+        .day-text {
+            color: #f39c12;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+       
+        #desc {
+            background-color: #16A085;
+            color: white;
+            padding: 50px;
+            text-align: center;
+            text-shadow: -3px 3px rgba(0, 0, 0, 0.3) ;
+            box-shadow: 0 3px rgba(0, 0, 0, 0.3);
+            font-size: 40px;
+        }
+
+        footer {margin-top: 50px; margin-left: 30px;}
+        footer ul li {
+            display: inline;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            box-shadow: -3px 3px 0 rgba(0, 0, 0, 0.3);
+        }
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        #link_home {
+            background-color: #2980B9;
+        }
+        #link_blog {
+            background-color: #8E44AD;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var d = new Date();
+            var day = d.getDay();
+            var msg = ["Sunday Funday!",
+                       "Back to the grind!",
+                       "Oh. It's Tuesday.",
+                       "Boom! Wednesday!",
+                       "Thirsty Thursday, yo!",
+                       "It's Friday! We should be kickin' it!",
+                       "Paaarrrtttyyy!"];
+            $(`.day_column:eq(${day})`).addClass('today');
+            //$(`.calendar:nth-child(0)`).text('here');
+            $("#desc").text(msg[day]);
+
+        });
+    </script>
+</head>
+<body>
+    <section id="main">
+        <div class="calendar">
+            <div class="day_column" >
+                <div class="day-text">Sun</div>
+            </div>
+            <div class="day_column" >
+                <div class="day-text">Mon</div>
+            </div>
+            <div class="day_column" >
+                <div class="day-text">Tue</div>
+            </div>
+            <div class="day_column" >
+                <div class="day-text">Wed</div>
+            </div>
+            <div class="day_column" >
+                <div class="day-text">Thu</div>
+            </div>
+            <div class="day_column" >
+                <div class="day-text">Fri</div>
+            </div>
+            <div class="day_column" >
+                <div class="day-text">Sat</div>
+            </div>
+        </div>
+        <div id="desc">Test</div>
+    </section>
+    <footer>
+        <ul>
+            <li id="link_home"><a href="index.html">Home</a></li>
+            <li id="link_blog"><a href="http://sishier.github.io/blog">Blog</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

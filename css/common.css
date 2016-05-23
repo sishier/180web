@@ -1,0 +1,31 @@
+﻿#main {
+    position: relative;
+}
+
+footer {
+    width: 400px;
+    text-align: center;
+    margin: 50px auto 30px auto;
+}
+
+    footer ul li {
+        display: inline-block;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        letter-spacing: 2px;
+        box-shadow: -3px 3px 0 rgba(0, 0, 0, 0.3);
+    }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+    footer #link_home {
+        background-color: #2980B9;
+    }
+
+    footer #link_blog {
+        background-color: #8E44AD;
+    }
