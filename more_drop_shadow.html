@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>More Drop Shadow</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <style>
+        header {
+            background-color: #5C00DE;
+            height: 100px;
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        header li {
+            display: inline-block; 
+            margin-left: 20px;
+        }
+
+        header a {
+            color: white;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #top_container {
+            width: 400px;
+            margin: 50px auto;
+        }
+
+        #picture {
+            box-shadow: 0 0 5px 0 white;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var imageSpreadRadius = 0;
+            $("#picture").click(function () {
+                imageSpreadRadius++;
+                var shadow = `0 0 5px ${imageSpreadRadius}px rgba(0, 1, 0, 0.34902)`;
+                $(this).css("box-shadow", shadow);
+            })
+        })
+    </script>
+</head>
+<body>
+
+    <header>
+        <ul>
+            <li id="link_home"><a href="index.html">Home</a></li>
+            <li id="link_blog"><a href="http://sishier.github.io/blog">Blog</a></li>
+        </ul>
+    </header>
+    <section id="main">
+        <div id="top_container">
+            <img id="picture" src="images/more_grumpy_shadow.png" alt="cat" />
+        </div>
+    </section>
+</body>
+</html>
